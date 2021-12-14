@@ -29,10 +29,11 @@
     </head>
 
     <body>
+
         @yield('body')
 
 
-
+        <x-dialog />
         <x-notifications />
         @livewireScripts
     </body>

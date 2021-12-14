@@ -2,9 +2,11 @@
 
 namespace App\Http\Livewire\Produtos;
 
+use App\Models\Produto;
 use Livewire\Component;
 use WireUi\Traits\Actions;
-class Produto extends Component
+
+class Create extends Component
 {
     use Actions;
     public string $name="";
@@ -12,22 +14,20 @@ class Produto extends Component
     public string $description="";
 
     protected $rules=[
-        'name'=>'required',
+        'name'=>['required','min:6'],
         'price'=>['required', 'min:0', 'max:7'],
 
 
 
     ];
-
     public function render()
     {
-        return view('livewire.produtos.produto');
+        return view('livewire.produtos.create');
     }
-
     # "parse para portugues" das mensagem de erro
     protected $messages = [
         'name.required' => 'O campo Nome é obrigatório.',
-
+        'name.min' => 'O campo Nome deve ter no minimo 6 caracteres. ',
         'price.max' => 'O preço deve ter no maximo 7 caracteres. ',
     ];
 
@@ -35,20 +35,21 @@ class Produto extends Component
     public function save(): void
     {
         $this->validate();
-      \App\Models\Produto::query()->create([
-         'name' =>  $this->name,
-          'price' =>$this->price,
-          'description' =>$this->description
-      ]);
+            Produto::query()->create([
+            'name' =>  $this->name,
+            'price' =>$this->price,
+            'description' =>$this->description
+        ]);
         $this->notification()->notify([
             'title'       => 'Sucesso!',
             'description' => 'Seu Produto foi salvo com sucesso',
             'icon'        => 'success',
+            'timeout'     =>    2000
 
         ]);
 
-
-      $this->emit('Produto::create');
+        #emite um evento de crate do produto
+        $this->emit('Produto::create');
 
         $this->clean();
     }
@@ -59,6 +60,4 @@ class Produto extends Component
         $this->price=0;
 
     }
-
-
 }

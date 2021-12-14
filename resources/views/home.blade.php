@@ -1,51 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="flex flex-col  justify-start  min-h-screen py-12 bg-gray-100 sm:px-6 lg:px-8">
-        <div class="absolute top-0 right-0 mt-4 mr-4">
-            @if (Route::has('login'))
-                <div class="space-x-4 text-white">
-                    @auth
-                        <a
-                            href="{{ route('logout') }}"
-                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                            class="  font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150"
-                        >
-                         Sair
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    @else
-                        <a href="{{ route('login') }}" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-        </div>
-
-        <div class="flex items-center justify-start ">
-            <div class="flex flex-col justify-around">
-
-                    <a href="{{ route('home') }}">
-                        <x-logo class="absolute mt-4 mr-4 top-0 left-0-0 w-16 h-6 mx-auto text-indigo-600" />
-                    </a>
-
-
-
-
-            </div>
-        </div>
-        <div class="mt-4">
-        <livewire:produtos.produto />
-        </div>
-
-        <div class="mt-4">
-            <livewire:produtos.show />
+    <div x-data="{ open: false }" class=" flex justify-center mt-4 ">
+        <button @click="open = ! open"
+                class="text-2xl font-medium rounded-full bg-indigo-600 hover:bg-indigo-500 focus:border-gray-800 text-white p-2.5">
+            <x-icon name="clipboard-check" class="w-5 h-5"/>
+        </button>
+        <br>
+        <div x-show="open" class="ml-2">
+            <x-card>
+                Esse é um pequeno exemplo de crud usando as tecnologia que compõem o nosso MVP
+            </x-card>
         </div>
     </div>
+
+    <div class="mt-4">
+        <livewire:produtos.create/>
+    </div>
+
+    <div class="mt-4">
+        <livewire:produtos.show/>
+    </div>
+
 @endsection

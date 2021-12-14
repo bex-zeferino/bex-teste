@@ -1,4 +1,4 @@
-@section('title', 'Sign in to your account')
+@section('title', 'Login Be.X')
 
 <div>
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
@@ -7,13 +7,13 @@
         </a>
 
         <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-900 leading-9">
-            Sign in to your account
+        Entre com sua conta
         </h2>
         @if (Route::has('register'))
             <p class="mt-2 text-sm text-center text-gray-600 leading-5 max-w">
-                Or
+               ou
                 <a href="{{ route('register') }}" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                    create a new account
+                    Crie um nova conta
                 </a>
             </p>
         @endif
@@ -24,7 +24,7 @@
             <form wire:submit.prevent="authenticate">
                 <div>
                     <label for="email" class="block text-sm font-medium text-gray-700 leading-5">
-                        Email address
+                        Email:
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">
@@ -38,7 +38,7 @@
 
                 <div class="mt-6">
                     <label for="password" class="block text-sm font-medium text-gray-700 leading-5">
-                        Password
+                        Senha
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">
@@ -54,13 +54,13 @@
                     <div class="flex items-center">
                         <input wire:model.lazy="remember" id="remember" type="checkbox" class="form-checkbox w-4 h-4 text-indigo-600 transition duration-150 ease-in-out" />
                         <label for="remember" class="block ml-2 text-sm text-gray-900 leading-5">
-                            Remember
+                            Manter conectado
                         </label>
                     </div>
 
                     <div class="text-sm leading-5">
                         <a href="{{ route('password.request') }}" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                            Forgot your password?
+                            Esqueceu a sua senha?
                         </a>
                     </div>
                 </div>

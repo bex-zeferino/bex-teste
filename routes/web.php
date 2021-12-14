@@ -8,6 +8,12 @@ use App\Http\Livewire\Auth\Passwords\Email;
 use App\Http\Livewire\Auth\Passwords\Reset;
 use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Auth\Verify;
+use App\Http\Livewire\{
+    Indicador\Indicador,
+    Playground
+
+
+};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,5 +68,8 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::view('/home', 'home')->name('home');
+    Route::get('/indicador', Indicador::class)->name('indicador');
+
+    Route::get('/playground', Playground::class)->name('playground');
 });
 
