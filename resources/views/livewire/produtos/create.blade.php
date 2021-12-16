@@ -14,9 +14,9 @@
 
             <x-slot name="footer" class="place-items-end">
 
-                <div class="@if($name) animate-pulse @endif
+                <div class="@if($name) animate-pulse  @endif
                     ">
-                    <x-button   type="submit" spinner="save" primary label="Salvar" />
+                    <x-button  type="submit" spinner="save" primary label="Salvar" />
 
 
                 </div>

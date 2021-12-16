@@ -3,19 +3,19 @@
 @section('body')
 
     <div class="flex flex-col  justify-start  min-h-screen py-12 bg-gray-100 sm:px-6 lg:px-8">
-        <div  class="absolute top-0 right-0 mt-4 mr-4" >
+        <div class="absolute top-0 right-0 mt-4 mr-4">
             @if (Route::has('login'))
                 <div class="space-x-4 ">
                     @auth
                         Candidato: {{Auth::user()->name}} |
 
                         <a x-show="open"
-                            href="{{ route('logout') }}"
-                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                           href="{{ route('logout') }}"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
 
-                            class="  font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150"
+                           class="  font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150"
                         >
-                          Sair
+                            Sair
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -43,23 +43,26 @@
                 </a>
 
 
-
             </div>
         </div>
-       <x-card class="">
-           <ul class="flex justify-between text-center text-lg">
-               <li class="mr-6">
-                   <a class=" @if(Route::currentRouteName() == 'home')text-blue-500 hover:text-blue-800 @endif text-gray-500 focus:border-gray-800 hover:text-gray-800" href="{{route('home')}}"  >Inicio</a>
-               </li>
-               <li class="mr-6">
-                   <a class="@if(Route::currentRouteName() == 'indicador')text-blue-500 hover:text-blue-800 @endif text-gray-500 focus:border-gray-800 hover:text-gray-800"  href="{{route('indicador')}}">Indicadores</a>
-               </li>
-               <li class="mr-6">
-                   <a class="@if(Route::currentRouteName() == 'playground')text-blue-500 hover:text-blue-800 @endif text-gray-500 focus:border-gray-800 hover:text-gray-800" href="{{route('playground')}}">PlayGround</a>
-               </li>
+        <x-card class="">
+            <ul class="flex justify-between text-center text-lg">
+                <li class="mr-6">
+                    <a class=" @if(Route::currentRouteName() == 'home')text-blue-500 hover:text-blue-800 @endif text-gray-500 focus:border-gray-800 hover:text-gray-800"
+                       href="{{route('home')}}">Inicio</a>
+                </li>
+                <li class="mr-6">
+                    <a class="@if(Route::currentRouteName() == 'indicador')text-blue-500 hover:text-blue-800 @endif text-gray-500 focus:border-gray-800 hover:text-gray-800"
+                       href="{{route('indicador')}}">Indicadores</a>
+                </li>
+                <li class="mr-6">
+                    <a class="@if(Route::currentRouteName() == 'playground')text-blue-500 hover:text-blue-800 @endif text-gray-500 focus:border-gray-800 hover:text-gray-800"
+                       href="{{route('playground')}}">O DESAFIO @if(Route::currentRouteName() != 'playground')
+                            😱@else🤞😄🤞 @endif</a>
+                </li>
 
-           </ul>
-       </x-card>
+            </ul>
+        </x-card>
         <div class="mt-4">
 
             @yield('content')

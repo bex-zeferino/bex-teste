@@ -1,7 +1,7 @@
 <div>
 
     <x-card title="Lista de produtos">
-        <x-input  class="border-info-800" wire:model.defer="search" label="Pesquisar prodruto:" placeholder="Pesquise o produto">
+        <x-input  class="border-info-800" wire:model.defer="search" label="Pesquisar produto:" placeholder="Click na lupa para pesquisar 🧐 ">
             <x-slot name="append">
                 <div  class="absolute inset-y-0 right-0 flex items-center p-0.5">
 
@@ -18,7 +18,7 @@
         </x-input>
 
         <div class="overflow-auto h-52 mt-4">
-            <div class="text-center border shadow text-gray-800 text-2xl">Produtos Cadastrados</div>
+            <div class="text-center border shadow text-gray-800 text-2xl">📋 Produtos Cadastrados</div>
             <table wire:loading.class="hidden"
                    class="table-auto border-collapse w-full mt-4">
                 <thead>
