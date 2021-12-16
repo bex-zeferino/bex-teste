@@ -13,6 +13,8 @@ Fala Dev!
   ```bash
     cd bex-teste
     composer install && npm i
+    npm run dev
+    npm run watch
   ```
 - Configure o .env e depois rode as migrations.
    ```bash
