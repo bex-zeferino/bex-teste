@@ -12,12 +12,12 @@ Fala Dev!
 - Rodar os comandos abaixo:
   ```bash
     cd bex-teste
-    composer install && npm i
-    npm run dev
-    npm run watch
+    composer install && npm i  
+   
   ```
 - Configure o .env e depois rode as migrations.
    ```bash
         php artisan migrate
+         npm run watch
     ```
 Se deu tudo certo até aqui, agora é com você, vai encontrar mais detalhes no projeto, faz rodar e divirta-se 😁.
